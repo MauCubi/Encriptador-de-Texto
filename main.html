@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Iconos de fontawesome -->
+    <script src="https://kit.fontawesome.com/a2a09fc638.js" crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" href="img/Vector.ico">
+    <title>Encriptador</title>
+</head>
+
+<body>
+    <!-- CABECERO -->
+    <header>
+        <div class="cabecero">
+            <img src="img/logo2.png" alt="Logo Alura">
+            <h1>Challenge 1 - Encriptador de Texto</h1>               
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-area">
+
+    <!-- AREA DEL TEXTO A ENCRIPTAR O DESENCRIPTAR -->
+        <section class="area-texto-original">            
+            <h2>Texto a Encriptar / Desencriptar</h2>
+            <textarea class="caja-texto" name="texto-original" id="texto-original" 
+            autofocus placeholder="Ingrese texto aquí..."></textarea>
+            <p class="warning">&#128712; No debe ingresarse letras con acentos o caracteres especiales.</p>
+            <div class="botones">
+                <button class="boton1" id="encriptar" >&#128274; Encriptar</button>
+                <button class="boton1" id="desencriptar">&#128273; Desencriptar</button>
+                <button class="boton1" id="limpiar">&#129529; Limpiar</button>
+            </div>
+            
+        </section>
+
+    <!-- AREA DEL TEXTO UNA VEZ ENCRIPTADO/MODIFICADO -->
+        <section class="area-texto-modificado">
+            <h2>Texto Encriptado / Desencriptado</h2>
+            <textarea class="caja-texto" name="texto-modificado" id="texto-modificado" readonly
+            placeholder="No se ha encontrado texto..."></textarea>
+            <div class="botones">
+                <button class="boton1" id="copiar">&#128203; Copiar</button>
+            </div>
+        </section>   
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+
+    <footer class="pie-pagina">
+        <div class="pie-imagen">
+            <img src="img/logo-aluraespanhol.png" alt="">   
+        </div>        
+        <div class="copyright">
+            <p  style="color:rgb(198, 198, 198) ;"> &copy; Mauro Rogelio Cubilla - Oracle Next Education 2022</p>
+        </div>     
+        <div class="pie-socials">
+            <ul>
+                <li><a href="https://www.linkedin.com/in/mauro-rogelio-cubilla-526a67240/" target="_blank"><i class="fa-brands fa-linkedin fa-2xl" style="color:rgb(198, 198, 198);"></i></a></li>
+                <li><a href="https://github.com/MauCubi?tab=repositories" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color:rgb(198, 198, 198);"></i></a></li>
+                <li><a href="https://app.aluracursos.com/user/ma-cubi90" target="_blank"><i class="fa-solid fa-a fa-2xl" style="color:rgb(198, 198, 198);" ></i></li>                    
+            </ul>
+        </div>
+        
+    </footer>
+    
+    
+<!-- LOGICA -->
+
+<script>
+    // Asignacion de variables a cajas de texto
+    let textoOriginal = document.getElementById('texto-original');
+    let textoModificado = document.getElementById('texto-modificado');
+
+    // Asignar accion a los botones
+    document.getElementById('encriptar').onclick = encriptar;
+    document.getElementById('desencriptar').onclick = desencriptar;
+    document.getElementById('copiar').onclick = copiar;   
+    document.getElementById('limpiar').onclick = limpiar;  
+    
+
+    // Funcion para encriptar
+    function encriptar(){
+        textoModificado.value = textoOriginal.value.replaceAll('e', 'enter').
+                                                    replaceAll('i', 'imes').
+                                                    replaceAll('a', 'ai').
+                                                    replaceAll('o', 'ober').
+                                                    replaceAll('u', 'ufat');
+    }
+
+    // Funcion para desencriptar
+    function desencriptar(){        
+        textoModificado.value = textoOriginal.value.replaceAll('enter', 'e').
+                                                    replaceAll('imes', 'i').
+                                                    replaceAll('ai', 'a').
+                                                    replaceAll('ober', 'o').
+                                                    replaceAll('ufat', 'u');
+        
+    }
+
+    // Funcion para limpiar cajas de texto
+    function limpiar(){
+        textoOriginal.value = "";
+        textoModificado.value = "";
+        textoOriginal.focus();
+    }
+
+    // Funcion para copiar el texto en el textarea de texto modificado
+    function copiar(){        
+        textoModificado.select();
+        navigator.clipboard.writeText(textoModificado.value);        
+    }
+
+
+</script>  
+
+</body>
+</html>
