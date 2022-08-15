@@ -130,11 +130,13 @@ footer{
     padding: 25px 0;
     font-size:15px;    
     color:#737373;
+    text-align: center;
 }
 
 .pie-imagen{
-    display:inline-block;
-    margin: 0 50px;
+    position: absolute;
+    left: 3%;
+    
 }
 
 
@@ -142,11 +144,12 @@ footer{
     display: inline-block;
     color: white;    
     font-size: 17px;   
-    padding: 0 20%;       
+    padding: 0 0%;       
 }
 
 .pie-socials{
-    display: inline-block;  
+    display: inline-block;
+    margin-top: 5%;  
 
     
 }
